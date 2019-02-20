@@ -1,0 +1,25 @@
+
+public class SumOfSeries {
+	
+	 public static double sumOfSeries(double x, int numTerms){
+	        double sum = x;
+	        
+	        for (int k = 1; k < numTerms; k++) {
+	            double sumseries = Math.pow(x,2*k+1)/(double)(2*k+1);
+	            for (int i = 2*k-1; i >0; i-=2) {
+	            	sumseries *= i/(double)(i+1);
+	            }
+	           
+	            sum += sumseries;
+	        }        
+	        return sum;
+	    }  
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println(sumOfSeries(1, 5));
+	}
+
+}
