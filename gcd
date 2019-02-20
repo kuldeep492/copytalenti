@@ -1,0 +1,19 @@
+public class Gcd {
+
+	public static int gcd(int num,int num1)
+	{
+		if(num ==0|| num1==0)
+			return 0;
+		if(num==num1)
+			return num;
+		if(num>num1)
+		return gcd(num-num1,num1);
+		else
+			return gcd(num,num1-num);
+		
+	}
+	public static void main(String[] args) {
+		Gcd.gcd(99, 88);
+		
+	}
+}
