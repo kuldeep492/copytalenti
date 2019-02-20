@@ -1,0 +1,40 @@
+public class FibonacciOverFlow {
+
+	private void printIntFactorials()
+    {
+        int i  = 1;
+        int fn = 1;
+        while (true)
+        {
+        	System.out.println("The factorial of " +i+ " is  "+ fn);
+            if (Integer.MAX_VALUE / fn < (i+1)) {
+                System.out.print("The factorial of " + (i+1) + " is out of range.");
+                break;
+            }
+            i++;
+            fn *= i;
+        }
+
+    }
+
+    private void printLongFactorials()
+    {
+        long i  = 1L;
+        long fn = 1L;
+        while (true)
+        {
+           
+            if (Long.MAX_VALUE / fn < (i+1)) {
+                System.out.printf("The factorial of  is out of range."+ (i+1));
+                break;
+            }
+            i++;
+            fn *= i;
+        }
+
+    }
+    public static void main(String[] args) {
+    	FibonacciOverFlow fo=new FibonacciOverFlow();
+    	fo.printIntFactorials();
+	}
+}
