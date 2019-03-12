@@ -1,0 +1,57 @@
+String words ="testing";
+	     boolean[] secretWordMatches;
+	    public static void main(String[] args)
+	    {
+	    	GuessWord Guess = new GuessWord();
+	        Guess.runGame();
+	    }
+
+		 String getTrialWordWithMatches()
+		    {
+		        StringBuilder str = new StringBuilder();
+		        for (int i = 0; i < words.length(); i++) {
+		           str.append( (secretWordMatches[i] ? words.charAt(i) : '_') );
+		        }
+		        return str.toString();
+		    }
+		 void checkTrialWord(char ch)
+		    {
+		        for (int i = 0; i < words.length(); i++)
+		        {
+		            if (secretWordMatches[i]) {
+		                continue;
+		            }
+		            secretWordMatches[i] = words.charAt(i) == ch;
+		        }        
+		    }
+		    
+		     void runGame()
+		    {
+		        Scanner in = new Scanner(System.in);        
+		        secretWordMatches = new boolean[words.length()];                
+		        int trials = 0;
+		        while (true) {
+		            System.out.print("Key in one character or your guess word: ");
+		            String trialWord = (in.hasNext()) ? in.next() : "";
+		            
+		            trials++;
+		            
+		            if (trialWord.length() < 1) {
+		                continue;
+		            }
+		            
+		            if (trialWord.length() == 1) {                
+		                checkTrialWord(trialWord.charAt(0));
+		                trialWord = getTrialWordWithMatches();
+		                System.out.printf("Trail : \n", trials, trialWord);
+		                
+		            }
+		                        
+		            if (trialWord.equals(words)) {
+		                System.out.printf("Trail : Congratulation!\n", trials);
+		                break;
+		            }
+		        }
+		        System.out.printf("You got in  trials\n", trials);
+		    }
+		}
